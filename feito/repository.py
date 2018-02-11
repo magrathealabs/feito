@@ -1,3 +1,6 @@
+import os
+import json
+
 from git import Repo
 import subprocess
 
@@ -12,8 +15,8 @@ class Repository:
     def repo_name():
         repo_name = subprocess.run(
           "basename `git rev-parse --show-toplevel`", shell=True, stdout=subprocess.PIPE
-        ).stdout
-        return json.dumps(repo_name)
+        )
+        return repo_name.stdout.decode()[:-1]
 
     @staticmethod
     def commit_id():

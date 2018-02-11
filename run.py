@@ -10,13 +10,15 @@ from feito import Repository
 
 
 GITHUB_PR_ID = os.environ['GITHUB_PR_ID']
-USER_MESSAGE = os.environ['AUTHOR_MESSAGE']
+USER_MESSAGE = 'magrathealabs'
 TOKEN = os.environ['TOKEN']
 
 # TODO: Transform this into a cli
 def run():
     analysis = prospector.run()
-    messages = Messages(analysis).format()
+    messages = Messages(analysis).commit_format()
+    if messages == []:
+        return
     for message in messages:
         send_commit_message(message)
 
@@ -25,9 +27,9 @@ def send_commit_message(message):
     api = API(USER_MESSAGE, repo.repo_name, token=TOKEN)
     response = api.create_comment_commit(
         body=message['message'],
-        commit_id=repo.commit_id,
+        commit_id=repo.commit_id(),
         path=message['file'],
-        position=message['position'],
+        position=message['line'],
         pr_id=GITHUB_PR_ID,
     )
 

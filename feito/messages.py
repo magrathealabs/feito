@@ -14,7 +14,7 @@ class Messages:
         Returns a list of dictionaries
         """
         formatted_analyses = []
-        for analyze in self.analysis:
+        for analyze in self.analysis['messages']:
             formatted_analyses.append({
                 'message': f"{analyze['source']}: {analyze['message']}. Code: {analyze['code']}",
                 'file': analyze['location']['path'],
