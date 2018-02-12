@@ -8,17 +8,12 @@ import subprocess
 class Repository:
 
     def __init__(self):
-        self.repo_name = self.repo_name()
-        self.last_commit_id = self.commit_id()
+        self.repo = Repo(os.getcwd())
+        self.repo_name = self.__repo_name()
+        self.last_commit_id = self.__commit_id()
 
-    @staticmethod
-    def repo_name():
-        repo_name = subprocess.run(
-          "basename `git rev-parse --show-toplevel`", shell=True, stdout=subprocess.PIPE
-        )
-        return repo_name.stdout.decode()[:-1]
+    def __repo_name(self):
+        return self.repo.working_dir.split('/')[-1]
 
-    @staticmethod
-    def commit_id():
-        repo = Repo(os.getcwd())
-        return repo.head.commit.hexsha
+    def __commit_id(self):
+        return self.repo.head.commit.hexsha

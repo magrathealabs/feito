@@ -1,6 +1,8 @@
 import json
 import subprocess
 
+from git import Repo
+
 
 def run():
     """
