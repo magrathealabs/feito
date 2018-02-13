@@ -17,7 +17,7 @@ def run():
     if messages == []:
         return
     for message in messages:
-        print(send_commit_message(message))
+        print(send_commit_message(message).json())
 
 def send_commit_message(message):
     api = API(USER_MESSAGE, repo.repo_name, token=TOKEN)
