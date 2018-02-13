@@ -1,13 +1,9 @@
-import sys
 import os
-
-from git import Repo
 
 from feito.github import API
 from feito import Prospector
 from feito import Messages
 from feito import Repository
-
 
 GITHUB_PR_ID = os.environ['GITHUB_PR_ID']
 USER_MESSAGE = os.environ['USER_MESSAGE']

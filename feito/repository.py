@@ -1,6 +1,4 @@
 import os
-import json
-import subprocess
 
 from git import Repo
 
@@ -22,7 +20,7 @@ class Repository:
 
     def diff_files(self):
         hcommit = self.repo.head.commit
-        diff_objs = hcommit.diff('HEAD~1')
+        diff_objs = hcommit.diff('master...')
 
         filtered_diff_files = Filters.filter_diff_files(diff_objs)
         filtered_python_files = Filters.filter_python_files(filtered_diff_files)

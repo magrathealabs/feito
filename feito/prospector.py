@@ -3,9 +3,6 @@ import subprocess
 
 from git import Repo
 
-from feito import Filters
-from feito import Repository
-
 
 class Prospector:
 
