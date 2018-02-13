@@ -20,7 +20,7 @@ class Repository:
 
     def diff_files(self):
         hcommit = self.repo.head.commit
-        diff_objs = hcommit.diff('master...')
+        diff_objs = hcommit.diff('master..')
 
         filtered_diff_files = Filters.filter_diff_files(diff_objs)
         filtered_python_files = Filters.filter_python_files(filtered_diff_files)
