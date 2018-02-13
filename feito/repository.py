@@ -1,8 +1,10 @@
 import os
 import json
+import subprocess
 
 from git import Repo
-import subprocess
+
+from feito import Filters
 
 
 class Repository:
@@ -17,3 +19,12 @@ class Repository:
 
     def __commit_id(self):
         return self.repo.head.commit.hexsha
+
+    def diff_files(self):
+        hcommit = self.repo.head.commit
+        diff_objs = hcommit.diff('HEAD~1')
+
+        filtered_diff_files = Filters.filter_diff_files(diff_objs)
+        filtered_python_files = Filters.filter_python_files(filtered_diff_files)
+
+        return " ".join(filtered_python_files)
