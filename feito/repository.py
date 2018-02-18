@@ -13,10 +13,10 @@ class Repository:
         self.last_commit_id = self.__commit_id()
 
     def __repo_name(self):
-        return self.repo.working_dir.split('/')[-1]
+        return os.getenv('REPO_NAME') or self.repo.working_dir.split('/')[-1]
 
     def __commit_id(self):
-        return self.repo.head.commit.hexsha
+        return os.getenv('COMMIT_ID') or self.repo.head.commit.hexsha
 
     def diff_files(self):
         hcommit = self.repo.head.commit

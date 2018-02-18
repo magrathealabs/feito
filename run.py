@@ -5,9 +5,10 @@ from feito import Prospector
 from feito import Messages
 from feito import Repository
 
-GITHUB_PR_ID = os.environ['GITHUB_PR_ID']
-USER_MESSAGE = os.environ['USER_MESSAGE']
-TOKEN = os.environ['TOKEN']
+GITHUB_PR_ID = os.getenv('GITHUB_PR_ID')
+REPO_USERNAME = os.getenv('REPO_USERNAME')
+TOKEN = os.getenv('TOKEN')
+
 repo = Repository()
 
 # TODO: Transform this into a cli
@@ -17,10 +18,11 @@ def run():
     if messages == []:
         return
     for message in messages:
-        print(send_commit_message(message).json())
+        send_commit_message(message)
 
 def send_commit_message(message):
-    api = API(USER_MESSAGE, repo.repo_name, token=TOKEN)
+    api = API(REPO_USERNAME, repo.repo_name, token=TOKEN)
+
     response = api.create_comment_commit(
         body=message['message'],
         commit_id=repo.last_commit_id,
