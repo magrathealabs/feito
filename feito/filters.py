@@ -1,6 +1,3 @@
-from git import Repo
-
-
 class Filters:
 
     @staticmethod
@@ -11,10 +8,7 @@ class Filters:
         For a list of file name strings. it returns
         only those that are a Python file
         """
-        for file in files:
-            if file[-2:] != 'py':
-                files.remove(file)
-        return files
+        return list(filter(lambda file: file[-2:] == 'py', files))
 
     @staticmethod
     def filter_diff_files(diff_objects):

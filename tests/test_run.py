@@ -9,7 +9,6 @@ import run as run_feito
 from feito import Prospector
 
 
-
 class RunTest(TestCase):
 
     @requests_mock.Mocker()
@@ -37,8 +36,6 @@ class RunTest(TestCase):
             'path': 'tests/feito/fixtures/analyze_file.py',
             'position': 2
         }]
-
-
 
     def __mock_github_api(self, mock):
         github_api = 'https://api.github.com'

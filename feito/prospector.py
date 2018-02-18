@@ -1,8 +1,6 @@
 import json
 import subprocess
 
-from git import Repo
-
 
 class Prospector:
 
