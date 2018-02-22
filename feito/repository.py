@@ -1,4 +1,6 @@
 import os
+import json
+import subprocess
 
 from git import Repo
 
@@ -19,10 +21,10 @@ class Repository:
         return os.getenv('COMMIT_ID') or self.repo.head.commit.hexsha
 
     def diff_files(self):
-        hcommit = self.repo.head.commit
-        diff_objs = hcommit.diff('HEAD~1')
+        arg_git_diff = 'git diff --name-only --diff-filter=ACMR master'
+        diff_files = subprocess.run(arg_git_diff, stdout=subprocess.PIPE, shell=True)
+        diff_list = diff_files.stdout.decode().split('\n')[:-1]
 
-        filtered_diff_files = Filters.filter_diff_files(diff_objs)
-        filtered_python_files = Filters.filter_python_files(filtered_diff_files)
+        filtered_python_files = Filters.filter_python_files(diff_list)
 
         return " ".join(filtered_python_files)
