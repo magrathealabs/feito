@@ -27,9 +27,9 @@ Other variables, for example, `COMMIT_ID` and `REPO_NAME`, are optional because 
 
 Download the dependencies with `pip install -r requirements.txt`
 
-## 1) Steps taken in Feito
+## Steps taken in Feito
 
-Feito analysis is done with [Prospector](https://github.com/landscapeio/prospector). When `python run.py` is called, these are the actions taken:
+Feito analysis is done with [Prospector](https://github.com/landscapeio/prospector). When `python run.py` is called, these are the actions taken:<br>
 **1)** Gets the added, modified, renamed and copied files from the diff against the master branch.<br>
 **2)** Filters the files by removing every non Python file.<br>
 **3)** Runs Prospector on the Python files returned from the step above.<br>
