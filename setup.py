@@ -12,8 +12,9 @@ setup(
     description='Automated code review in Python',
     url='http://github.com/magrathelabs/feito',
     author='Magrathea Labs',
+    author_email='contact@magrathelabs.com',
     license='MIT',
-    packages=['feito'],
+    packages=['feito', 'feito/github'],
     zip_safe=False,
     install_requires=requires
 )
