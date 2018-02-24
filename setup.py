@@ -8,11 +8,11 @@ requires = [
 
 setup(
     name='feito',
-    version='0.2.1',
+    version='0.2.1.1',
     description='Automated code review in Python',
     url='http://github.com/magrathealabs/feito',
     author='Magrathea Labs',
-    author_email='contact@magrathelabs.com',
+    author_email='contact@magrathealabs.com',
     license='MIT',
     packages=['feito', 'feito/github'],
     zip_safe=False,
