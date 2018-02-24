@@ -8,7 +8,7 @@ requires = [
 
 setup(
     name='feito',
-    version='0.1.1',
+    version='0.2',
     description='Automated code review in Python',
     url='http://github.com/magrathelabs/feito',
     author='Magrathea Labs',
