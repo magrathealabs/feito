@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from feito import Filters
+from feito.filters import Filters
 
 
 class Repository:
