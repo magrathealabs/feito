@@ -2,12 +2,15 @@ import json
 import subprocess
 
 
-def run(files):
-    """
-    Runs prospector in the input files and return a json with the analysis
+class Prospector:
 
-    param files: list -> List of files, with relative path to the root project path, that should be analized
-    """
-    args_prospector = ['prospector', '--output-format', 'json'] + files
-    analysis = subprocess.run(args_prospector, stdout=subprocess.PIPE)
-    return json.loads(analysis.stdout)
+    def __init__(self, repo):
+        self.repo = repo
+
+    def run(self):
+        """
+        Runs prospector in the input files and returns a json with the analysis
+        """
+        arg_prospector = f'prospector --output-format json {self.repo.diff_files()}'
+        analysis = subprocess.run(arg_prospector, stdout=subprocess.PIPE, shell=True)
+        return json.loads(analysis.stdout)
