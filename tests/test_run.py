@@ -39,7 +39,7 @@ class RunTest(TestCase):
 
     def __mock_github_api(self, mock):
         github_api = 'https://api.github.com'
-        user = os.getenv('USERNAME')
+        user = os.getenv('REPOSITORY_USERNAME')
         repo = os.getenv('REPOSITORY_NAME')
         token = os.getenv('OAUTH_TOKEN')
         pr_id = os.getenv('PULL_REQUEST_ID')

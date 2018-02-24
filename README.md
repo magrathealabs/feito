@@ -19,7 +19,7 @@ The following environment variables must be exported:
 
 ```
 PULL_REQUEST_ID (e.g., 1)
-USERNAME (e.g. Michael)
+REPOSITORY_USERNAME (e.g. Michael)
 OAUTH_TOKEN (Github OAuth Token)
 ```
 

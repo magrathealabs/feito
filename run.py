@@ -9,7 +9,7 @@ from feito import Repository
 
 
 PULL_REQUEST_ID = os.getenv('PULL_REQUEST_ID')
-USERNAME = os.getenv('USERNAME')
+REPOSITORY_USERNAME = os.getenv('REPOSITORY_USERNAME')
 OAUTH_TOKEN = os.getenv('OAUTH_TOKEN')
 REPOSITORY_NAME = os.getenv('REPOSITORY_NAME') or Repo(os.getcwd())
 
@@ -21,10 +21,10 @@ def run():
     analysis = Prospector(repository).run()
     messages = Messages(analysis).commit_format()
     for message in messages:
-        send_commit_message(message)
+        print(send_commit_message(message))
 
 def send_commit_message(message):
-    api = API(USERNAME, repository.repo_name, token=OAUTH_TOKEN)
+    api = API(REPOSITORY_USERNAME, repository.repo_name, token=OAUTH_TOKEN)
 
     response = api.create_comment_commit(
         body=message['message'],
@@ -34,7 +34,7 @@ def send_commit_message(message):
         pr_id=PULL_REQUEST_ID,
     )
 
-    return response
+    return response.json()
 
 if __name__ == '__main__':
     run()
