@@ -1,6 +1,3 @@
-import os
-
-from unittest.mock import Mock
 from unittest import TestCase
 
 from feito import Filters

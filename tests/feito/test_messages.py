@@ -1,10 +1,9 @@
-import os
-import unittest
+from unittest import TestCase
 
 from feito import Messages
 
 
-class MessagesTestCase(unittest.TestCase):
+class MessagesTestCase(TestCase):
 
     def test_format(self):
         stub_messages = {

@@ -13,7 +13,7 @@ class RunTest(TestCase):
 
     @requests_mock.Mocker()
     @mock.patch.object(Prospector, 'run', return_value=stub_return)
-    def test_run(self, mock_requ, mock_pros):
+    def test_run(self, mock_requ, _):
         self.__mock_github_api(mock_requ)
 
         run_feito.run()

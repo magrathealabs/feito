@@ -1,8 +1,5 @@
 import os
 from unittest import TestCase
-from unittest import mock
-
-from git import Repo
 
 from feito import Repository
 
