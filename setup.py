@@ -16,5 +16,6 @@ setup(
     license='MIT',
     packages=['feito', 'feito/github'],
     zip_safe=False,
+    scripts=['bin/feito'],
     install_requires=requires
 )
