@@ -1,0 +1,4 @@
+#!/usr/bin/env python
+
+import feito
+feito.run()

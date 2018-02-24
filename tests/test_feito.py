@@ -5,8 +5,8 @@ from unittest import mock
 import requests_mock
 
 from tests.feito.support.prospector_analysis_stub_return import stub_return
-import run as run_feito
-from feito import Prospector
+from feito.prospector import Prospector
+import feito
 
 
 class RunTest(TestCase):
@@ -16,7 +16,7 @@ class RunTest(TestCase):
     def test_run(self, mock_requ, _):
         self.__mock_github_api(mock_requ)
 
-        run_feito.run()
+        feito.run()
 
         sent_data = [data.json() for data in mock_requ.request_history]
 

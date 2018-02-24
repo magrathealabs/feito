@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from feito import Filters
+from feito.filters import Filters
 
 
 class FiltersTestCase(TestCase):
