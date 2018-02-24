@@ -39,8 +39,9 @@ class RunTest(TestCase):
 
     def __mock_github_api(self, mock):
         github_api = 'https://api.github.com'
-        user = os.getenv('REPO_USERNAME')
-        repo = os.getenv('REPO_NAME')
-        token = os.getenv('TOKEN')
+        user = os.getenv('USERNAME')
+        repo = os.getenv('REPOSITORY_NAME')
+        token = os.getenv('OAUTH_TOKEN')
+        pr_id = os.getenv('PULL_REQUEST_ID')
 
-        mock.post(f"{github_api}/repos/{user}/{repo}/pulls/1/comments", request_headers={'authorization': f'token {token}'})
+        mock.post(f"{github_api}/repos/{user}/{repo}/pulls/{pr_id}/comments", request_headers={'authorization': f'token {token}'})

@@ -4,9 +4,11 @@ Automated code review in Python done with Prospector
 
 ## Setting up
 
+Right now, Feito only supports GitHub.
+
 ### 1) Requirements
 
-A [Github OAuth Token](https://help.github.com/articles/git-automation-with-oauth-tokens/)
+An account in GitHub must have its OAuth Token acquired. Follow this [link](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token). When the Scopes section arrives, the `admin:repo_hook` and `repo` checkboxes must be selected. Copy the Token (really, copy it, you won't be able visualize after) and save it somewhere.
 
 ### 2) Setup environment
 
@@ -16,12 +18,12 @@ This lib is meant to be run in CI programs, not locally. However, this is still 
 The following environment variables must be exported:
 
 ```
-GITHUB_PR_ID (e.g., 1)
-REPO_USERNAME (e.g. Michael)
-TOKEN (Github OAuth Token)
+PULL_REQUEST_ID (e.g., 1)
+USERNAME (e.g. Michael)
+OAUTH_TOKEN (Github OAuth Token)
 ```
 
-Other variables, for example, `COMMIT_ID` and `REPO_NAME`, are optional because they can be fetched from the local development data. In CIs, like CircleCI, these 5 variables are avaliable without our need to configure them.
+Other variables, for example, `COMMIT_ID` and `REPOSITORY_NAME`, are optional because they can be fetched from the local development data. In CIs, like CircleCI, these 5 variables are avaliable without our need to configure them.
 
 #### Dependencies
 
