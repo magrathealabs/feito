@@ -44,4 +44,8 @@ class RunTest(TestCase):
         token = os.getenv('OAUTH_TOKEN')
         pr_id = os.getenv('PULL_REQUEST_ID')
 
-        mock.post(f"{github_api}/repos/{user}/{repo}/pulls/{pr_id}/comments", request_headers={'authorization': f'token {token}'})
+        mock.post(
+            f"{github_api}/repos/{user}/{repo}/pulls/{pr_id}/comments",
+            request_headers={'authorization': f'token {token}'},
+            json='ok'
+        )
