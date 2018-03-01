@@ -45,13 +45,13 @@ Feito analysis is done with [Prospector](https://github.com/landscapeio/prospect
 **5)** Iterates throught this list and send a POST request for each dictionary, with its data properly formatted, that end up being the commit review message.
 
 
-### Badge
+## Badge
 
 Show the world you're using Feito! Add the badge code review by feito to your project.
 
 [![code review by feito](https://img.shields.io/badge/code%20review%20by-feito-blue.svg)](https://github.com/magrathealabs/feito)
 
-### License
+## License
 
 The package is available as open source under the terms of the MIT License.
 
