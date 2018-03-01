@@ -16,7 +16,7 @@ Right now, Feito only supports GitHub.
 
 ### Requirements for usage
 
-In order to have an account to comment as Feito in your PRs, a GitHub OAuth Token must be acquired. Follow this [link](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token). When the Scopes section arrives, the `admin:repo_hook` and `repo` checkboxes must be selected. Copy the Token (really, copy it, you won't be able visualize after) and save it somewhere.
+In order to have an account to comment as Feito in your PRs, a GitHub OAuth Token must be acquired. Follow this [link](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token). When the Scopes section arrives, the `admin:repo_hook` and `repo` checkboxes must be selected. Copy the Token (really, copy it, you won't be able to visualize it afterward) and save it somewhere.
 
 ### Setting environment variables
 
@@ -33,7 +33,7 @@ Other variables, for example, `COMMIT_ID` and `REPOSITORY_NAME`, are optional be
 
 ### Usage
 
-After exporting the environment variables above. Simply execute `$ feito`. In a few moments, the analysis done by Prospector will be shown in your PR
+After exporting the environment variables above, execute `feito`. In a few moments, the analysis done by Prospector will be shown in your PR
 
 ## Steps taken in Feito
 
@@ -43,6 +43,17 @@ Feito analysis is done with [Prospector](https://github.com/landscapeio/prospect
 **3)** Runs Prospector on the Python files returned from the step above.<br>
 **4)** Formats the returned Prospector analysis into a list of dictionaries containing the message, the line which triggered this review and the file path.<br>
 **5)** Iterates throught this list and send a POST request for each dictionary, with its data properly formatted, that end up being the commit review message.
+
+
+### Badge
+
+Show the world you're using Feito! Add the badge code review by feito to your project.
+
+[![code review by feito](https://img.shields.io/badge/code%20review%20by-feito-blue.svg)](https://github.com/magrathealabs/feito)
+
+### License
+
+The package is available as open source under the terms of the MIT License.
 
 
 ## Contributing
