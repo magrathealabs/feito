@@ -1,6 +1,7 @@
 [![CircleCI](https://circleci.com/gh/magrathealabs/feito.svg?style=shield&circle-token=7ca1c63859e4f72f377a16e2e2f817e1b097c919)](https://circleci.com/gh/magrathealabs/feito)
 <a href="https://codeclimate.com/github/magrathealabs/feito/maintainability"><img src="https://api.codeclimate.com/v1/badges/57b6a6aab2f6c67de971/maintainability" /></a>
 [![PyPI version](https://badge.fury.io/py/feito.svg)](https://badge.fury.io/py/feito)
+[![code review by feito](https://img.shields.io/badge/code%20review%20by-feito-blue.svg)](https://github.com/magrathealabs/feito)
 
 # Feito
 
