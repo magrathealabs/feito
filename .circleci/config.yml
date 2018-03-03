@@ -19,6 +19,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
+            pip install feito
 
       - save_cache:
           paths:
@@ -29,6 +30,13 @@ jobs:
           command: |
             . venv/bin/activate
             pytest
+      - run:
+          name: run Feito
+          command: |
+            export PULL_REQUEST_ID="$(echo $CIRCLE_PULL_REQUEST | grep -o -E '[0-9]+')"
+            export REPOSITORY_NAME="${CIRCLE_PROJECT_REPONAME}"
+            export REPOSITORY_USERNAME="${CIRCLE_PROJECT_USERNAME}"
+            feito
 
       - store_artifacts:
           path: test-reports
