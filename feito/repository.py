@@ -9,15 +9,8 @@ class Repository:
     GIT_DIFF_COMMAND = 'git diff --name-only --diff-filter=ACMR master'
 
     def __init__(self, repo):
-        self.repo = repo
-        self.repo_name = self.__repo_name()
-        self.last_commit_id = self.__commit_id()
-
-    def __repo_name(self):
-        return os.getenv('REPOSITORY_NAME') or self.repo.working_dir.split('/')[-1]
-
-    def __commit_id(self):
-        return os.getenv('COMMIT_ID') or self.repo.head.commit.hexsha
+        self.repo_name = repo
+        self.last_commit_id = os.getenv('COMMIT_ID')
 
     def diff_files(self):
         diff_files = subprocess.run(self.GIT_DIFF_COMMAND, stdout=subprocess.PIPE, shell=True)
