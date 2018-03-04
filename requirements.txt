@@ -4,3 +4,4 @@ GitPython==2.1.8
 prospector==0.12.7
 pytest==3.4.0
 pytest-env==0.6.2
+feito==0.0.4
