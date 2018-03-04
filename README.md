@@ -26,11 +26,11 @@ The following environment variables must be exported:
 
 ```
 PULL_REQUEST_ID (e.g., 1)
-REPOSITORY_USERNAME (e.g. Michael)
+REPOSITORY_USERNAME (e.g. magrathealabs)
 OAUTH_TOKEN (Github OAuth Token)
+COMMIT_ID (e.g. 08a943e797af4121c1e809d3b2288bbd70dcb0b7)
+REPOSITORY_NAME (e.g. feito)
 ```
-
-Other variables, for example, `COMMIT_ID` and `REPOSITORY_NAME`, are optional because they can be fetched from the local development data. In CIs, like CircleCI, these 5 variables are avaliable without our need to configure them.
 
 ### Usage
 
