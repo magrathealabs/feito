@@ -19,7 +19,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-            pip install feito==0.2.1.1
+            pip install feito==0.0.3
 
       - save_cache:
           paths:
