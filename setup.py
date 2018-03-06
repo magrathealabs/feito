@@ -8,7 +8,7 @@ requires = [
 
 setup(
     name='feito',
-    version='0.2.1.1',
+    version='0.0.4',
     description='Automated code review in Python',
     url='http://github.com/magrathealabs/feito',
     author='Magrathea Labs',
@@ -16,6 +16,19 @@ setup(
     license='MIT',
     packages=['feito', 'feito/github'],
     zip_safe=False,
+    keywords = ['code review', 'good code', 'linter', 'coverage', 'pronto for python'],
     scripts=['bin/feito'],
-    install_requires=requires
+    install_requires=requires,
+    classifiers = [
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Information Technology',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3 :: Only',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Software Development :: Quality Assurance',
+        'Topic :: Software Development :: Testing',
+        'Topic :: Utilities',
+    ]
 )

@@ -1,7 +1,5 @@
 import os
 
-from git import Repo
-
 from feito.github import API
 from feito.prospector import Prospector
 from feito.messages import Messages
@@ -11,7 +9,7 @@ from feito.repository import Repository
 PULL_REQUEST_ID = os.getenv('PULL_REQUEST_ID')
 REPOSITORY_USERNAME = os.getenv('REPOSITORY_USERNAME')
 OAUTH_TOKEN = os.getenv('OAUTH_TOKEN')
-REPOSITORY_NAME = os.getenv('REPOSITORY_NAME') or Repo(os.getcwd())
+REPOSITORY_NAME = os.getenv('REPOSITORY_NAME')
 
 
 def run():

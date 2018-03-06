@@ -14,7 +14,7 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: install dependencies
+          name: Install dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
@@ -25,10 +25,23 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
       - run:
-          name: run tests
+          name: Run tests
           command: |
             . venv/bin/activate
             pytest
+      - run:
+          name: Run Feito
+          command: |
+            . venv/bin/activate
+            export PULL_REQUEST_ID=`echo $CIRCLE_PULL_REQUEST | grep -o -E '[0-9]+'`
+            export REPOSITORY_NAME=${CIRCLE_PROJECT_REPONAME}
+            export REPOSITORY_USERNAME=${CIRCLE_PROJECT_USERNAME}
+            export COMMIT_ID=${CIRCLE_SHA1}
+
+            if [[ -n ${PULL_REQUEST_ID} ]]
+            then
+              feito
+            fi
 
       - store_artifacts:
           path: test-reports
