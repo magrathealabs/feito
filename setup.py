@@ -16,8 +16,8 @@ setup(
     license='MIT',
     packages=['feito', 'feito/github'],
     zip_safe=False,
-    keywords = ['code review', 'good code', 'linter', 'coverage', 'pronto for python'],
-    scripts=['bin/feito'],
+               keywords = ['code review', 'good code', 'linter', 'coverage', 'pronto for python'],
+              scripts=['bin/feito'],
     install_requires=requires,
     classifiers = [
         'Development Status :: 3 - Alpha',
