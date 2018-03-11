@@ -21,16 +21,35 @@ In order to have an account to comment as Feito in your PRs, a GitHub OAuth Toke
 
 ### Setting environment variables
 
-This lib is meant to be run in CI programs, not locally. However, this is still possible.
+#### Locally
+
+This lib is meant to be run in CI programs, not locally, as a mean to automate code lintage. However, this is still possible.
 The following environment variables must be exported:
 
-```
+```sh
 PULL_REQUEST_ID (e.g., 1)
 REPOSITORY_USERNAME (e.g. magrathealabs)
 OAUTH_TOKEN (Github OAuth Token)
 COMMIT_ID (e.g. 08a943e797af4121c1e809d3b2288bbd70dcb0b7)
 REPOSITORY_NAME (e.g. feito)
 ```
+
+#### In CIs
+
+In CircleCI, your `circle.yml` (v1.0) or `.circleci/config.yml` (v2.0) file can be modified with the following code:
+
+```sh
+export PULL_REQUEST_ID=`echo $CIRCLE_PULL_REQUEST | grep -o -E '[0-9]+'`
+export REPOSITORY_NAME=${CIRCLE_PROJECT_REPONAME}
+export REPOSITORY_USERNAME=${CIRCLE_PROJECT_USERNAME}
+export COMMIT_ID=${CIRCLE_SHA1}
+feito
+```
+
+The `OAUTH_TOKEN` was set in Circle's own area for environment variables, and therefore does not need to be exported in the configuration file.
+
+For more insight, check out this project's `.circleci/config.yml`.
+
 
 ### Usage
 
