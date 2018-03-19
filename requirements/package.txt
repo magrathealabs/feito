@@ -1,0 +1,2 @@
+prospector==0.12.7
+requests==2.18.4

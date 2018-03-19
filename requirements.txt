@@ -1,6 +1,1 @@
-requests==2.18.4
-requests-mock==1.4.0
-prospector==0.12.7
-pytest==3.4.0
-pytest-env==0.6.2
-feito==0.0.4
+-r requirements/package.txt
