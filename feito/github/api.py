@@ -5,7 +5,7 @@ class API:
     GITHUB_API_URL = 'https://api.github.com'
 
     # TODO: Add username and password authentication methods
-    def __init__(self, user, repo, token=None, password=None):
+    def __init__(self, user, repo, token):
         """
         param user: str -> Github username
         param token: str -> Github oauth token
@@ -15,10 +15,7 @@ class API:
         self.user = user
         self.repo = repo
         self.token = token
-        self.password = password
-
-        if token:
-            self.auth_header = {'authorization': f'token {token}'}
+        self.auth_header = {'authorization': f'token {token}'}
 
     def create_comment_commit(self, body, commit_id, path, position, pr_id):
         """
