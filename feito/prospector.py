@@ -11,6 +11,14 @@ class Prospector:
         """
         Runs prospector in the input files and returns a json with the analysis
         """
-        arg_prospector = f'prospector --output-format json {self.repo.diff_files()}'
-        analysis = subprocess.run(arg_prospector, stdout=subprocess.PIPE, shell=True)
-        return json.loads(analysis.stdout)
+
+        # TODO: Rename both
+        patch_list = self.repo.patch_list()
+
+        for patch in patch_list:
+            file = patch['file']
+            arg_prospector = f'prospector --output-format json {file}'
+            analysis = subprocess.run(arg_prospector, stdout=subprocess.PIPE, shell=True)
+            patch['prospector'] = json.loads(analysis.stdout)
+
+        return patch_list
